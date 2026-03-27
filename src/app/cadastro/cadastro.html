@@ -48,14 +48,34 @@
                             <input type="date" class="form-control" id="dataNascimento" />
                         </div>
                         <div class="mb-3">
-                            <label for="cep" class="form-label">CEP</label>
+                            <label for="cep" class="form-label">CEP (somente numeros)</label>
                             <input type="text" class="form-control" id="cep" placeholder="Digite seu CEP" formControlName="cep"/>
                         </div>
+                        <div><button type="button" class="btn btn-secondary" (click)="buscarCep">Buscar</button></div>
                         <div class="mb-3">
                             <label for="logradouro" class="form-label">Logradouro</label>
                             <input type="text" class="form-control" id="logradouro" placeholder="Digite seu logradouro" formControlName="logradouro"/>
                         </div>
-                        <div><button type="button" (click)="buscarCep">Buscar</button></div>
+                        <div class="mb-3">
+                            <label for="numero" class="form-label">Número</label>
+                            <input type="number" class="form-control" id="numero" placeholder="Digite seu numero" formControlName="numero"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="complemento" class="form-label">Complemento</label>
+                            <input type="text" class="form-control" id="complemento" placeholder="Digite seu complemento" formControlName="complemento"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="uf" class="form-label">UF</label>
+                            <input type="text" class="form-control" id="uf" placeholder="Digite sua UF" formControlName="uf"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="localidade" class="form-label">Localidade</label>
+                            <input type="text" class="form-control" id="localidade" placeholder="Digite seu localidade" formControlName="localidade"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bairro" class="form-label">Bairro</label>
+                            <input type="text" class="form-control" id="bairro" placeholder="Digite seu bairro" formControlName="bairro"/>
+                        </div>
                         <div class="mb-3">
                             <label for="estado" class="form-label">Estado</label>
                             <select class="form-select" id="estado">

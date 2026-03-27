@@ -20,7 +20,12 @@ export class Cadastro {
     email: new FormControl('',[Validators.required, Validators.email]),
     senha: new FormControl('',[Validators.required, Validators.pattern(this.passwordRegex)]),
     cep: new FormControl(''),
-    logradouro: new FormControl('')
+    logradouro: new FormControl({value:'', disabled: true}),
+    numero: new FormControl(''),
+    complemento: new FormControl(''),
+    uf: new FormControl({value:'', disabled: true}),
+    bairro: new FormControl({value:'', disabled: true}),
+    localidade: new FormControl({value:'', disabled: true})
 });
 
 onSubmit(){
@@ -58,6 +63,9 @@ get buscarCep(){
   const cep = this.form.get('cep')?.value ?? ''
   this.enderecoService.getEndereco(cep).subscribe(endereco => {
     this.form.get('logradouro')?.setValue(endereco.logradouro);
+    this.form.get('uf')?.setValue(endereco.uf);
+    this.form.get('bairro')?.setValue(endereco.bairro);
+    this.form.get('localidade')?.setValue(endereco.localidade);
   });
 return true;
 }
