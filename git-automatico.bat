@@ -6,5 +6,3 @@ for /f %%i in ('powershell -NoProfile -Command "Get-Date -Format yyyy-MM-dd"') d
 git add .
 git commit -m "%DATA%"
 git push
-
-pause
