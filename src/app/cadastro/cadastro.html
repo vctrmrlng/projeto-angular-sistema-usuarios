@@ -1,97 +1,144 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h2 class="text-center mb-4">Cadastro de Usuário</h2>
-
-                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                        <div class="mb-3">
-                            <label for="nome" class="form-label">Nome completo</label>
-                            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome completo"
-                                formControlName="nome" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail"
-                                formControlName="email" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="senha" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senha" placeholder="Digite sua senha"
-                                #senhaInput (input)="validarSenha(senhaInput.value)" formControlName="senha" />
-
-
-                            <label [ngStyle]="{color: regraMinimoCaractere ? 'green': 'red'} "><i>A senha deve ter no
-                                    mínimo 8 caracteres</i></label>
-                                    <br>
-                            <label [ngStyle]="{color: regraMaximoCaractere ? 'green': 'red'} "><i>A senha deve ter no
-                                    maximo 16 caracteres</i></label>
-                                    <br>
-                            <label [ngStyle]="{color: regraLetraMaiuscula ? 'green': 'red'} "><i>A senha deve ter no
-                                    mínimo 1 letra maiuscula</i></label>
-                                    <br>
-                            <label [ngStyle]="{color: regraCaractereEspecial ? 'green': 'red'} "><i>A senha deve ter no
-                                    mínimo 1 caractere especial</i></label>
-                                    <br>
-                            <label [ngStyle]="{color: regraLetraNumero ? 'green': 'red'} "><i>A senha deve ter no mínimo
-                                    1 numero</i></label>
-
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="dataNascimento" class="form-label">Data de
-                                nascimento</label>
-                            <input type="date" class="form-control" id="dataNascimento" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="cep" class="form-label">CEP (somente numeros)</label>
-                            <input type="text" class="form-control" id="cep" placeholder="Digite seu CEP" formControlName="cep"/>
-                        </div>
-                        <div><button type="button" class="btn btn-secondary" (click)="buscarCep">Buscar</button></div>
-                        <div class="mb-3">
-                            <label for="logradouro" class="form-label">Logradouro</label>
-                            <input type="text" class="form-control" id="logradouro" placeholder="Digite seu logradouro" formControlName="logradouro"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="numero" class="form-label">Número</label>
-                            <input type="number" class="form-control" id="numero" placeholder="Digite seu numero" formControlName="numero"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="complemento" class="form-label">Complemento</label>
-                            <input type="text" class="form-control" id="complemento" placeholder="Digite seu complemento" formControlName="complemento"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="uf" class="form-label">UF</label>
-                            <input type="text" class="form-control" id="uf" placeholder="Digite sua UF" formControlName="uf"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="localidade" class="form-label">Localidade</label>
-                            <input type="text" class="form-control" id="localidade" placeholder="Digite seu localidade" formControlName="localidade"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="bairro" class="form-label">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" placeholder="Digite seu bairro" formControlName="bairro"/>
-                        </div>
-                        <div class="mb-3">
-                            <label for="estado" class="form-label">Estado</label>
-                            <select class="form-select" id="estado">
-                                <option selected>Selecione</option>
-                                <option>RJ</option>
-                                <option>SP</option>
-                                <option>MG</option>
-                                <option>ES</option>
-                            </select>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                        </div>
-                    </form>
-                </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Cadastro de Usuário</h2>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome completo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                placeholder="Digite seu nome completo"
+                formControlName="nome"
+              />
             </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Digite seu e-mail"
+                formControlName="email"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senha"
+                placeholder="Digite sua senha"
+                #senhaInput
+                (input)="validarSenha(senhaInput.value)"
+                formControlName="senha"
+              />
+              <label [ngStyle]="{ color: regraMinimoCaractere ? 'green' : 'red'}"><i>A senha deve ter no mínimo 8 caracteres</i></label><br>
+              <label [ngStyle]="{ color: regraMaximoCarectere ? 'green' : 'red'}"><i>A senha deve ter no máximo 16 caracteres</i></label><br>
+              <label [ngStyle]="{ color: regraLetraMaiuscula ? 'green' : 'red'}"><i>A senha deve ter ao menos uma letra maiúscula</i></label><br>
+              <label [ngStyle]="{ color: regraCaractereEspecial ? 'green' : 'red'}"><i>A senha deve ter no mínimo um caractere especial</i></label><br>
+              <label [ngStyle]="{ color: regraNumerosLetras ? 'green' : 'red'}"><i>A senha deve ter números e letras</i></label><br>
+            </div>
+            <div class="mb-3">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input
+                type="text"
+                class="form-control"
+                id="telefone"
+                placeholder="Digite seu telefone"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="dataNascimento" class="form-label">Data de nascimento</label>
+              <input type="date" class="form-control" id="dataNascimento" />
+            </div>
+            <div class="mb-3">
+              <label for="cep" class="form-label">CEP</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cep"
+                placeholder="Digite seu CEP"
+                formControlName="cep"
+              />
+            </div>
+            <div><button type="button" class="btn btn-secondary" (click)="buscarCep">Buscar</button></div>
+            <div class="mb-3">
+              <label for="logradouro" class="form-label">Logradouro</label>
+              <input
+                type="text"
+                class="form-control"
+                id="logradouro"
+                placeholder="Digite seu Logradouro"
+                formControlName="logradouro"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="numero" class="form-label">Nº</label>
+              <input
+                type="number"
+                class="form-control"
+                id="numero"
+                placeholder="Digite seu Numero"
+                formControlName="numero"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="complemento" class="form-label">Complemento</label>
+              <input
+                type="text"
+                class="form-control"
+                id="complemento"
+                placeholder="Digite seu Complemento"
+                formControlName="complemento"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="uf" class="form-label">UF</label>
+              <input
+                type="text"
+                class="form-control"
+                id="uf"
+                placeholder="Digite seu UF"
+                formControlName="uf"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="bairro" class="form-label">Bairro</label>
+              <input
+                type="text"
+                class="form-control"
+                id="bairro"
+                placeholder="Digite seu Bairro"
+                formControlName="bairro"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="localidade" class="form-label">Localidade</label>
+              <input
+                type="text"
+                class="form-control"
+                id="localidade"
+                placeholder="Digite seu Localidade"
+                formControlName="localidade"
+              />
+            </div>
+
+            <div class="d-grid">
+              <button routerLink="/lista-usuarios" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+          <button class="btn btn-secondary">Lista Usuarios</button>
         </div>
+      </div>
     </div>
+  </div>
 </div>

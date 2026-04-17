@@ -5,4 +5,4 @@ import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(App, {
   providers: [provideHttpClient()]
-})
+});
